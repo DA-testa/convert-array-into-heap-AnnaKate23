@@ -50,7 +50,7 @@ def main():
         #skaitlu ievade
     elif "F" in text:
         file = input()
-        with open(f"./test/{file}", "r") as filee:
+        with open(f"./test/{file}", mode="r") as filee:
             n = int(filee.readline())
             data = list(map(int, filee.readline().split()))
             assert len(data) == n, "length of data should be the same as n"
