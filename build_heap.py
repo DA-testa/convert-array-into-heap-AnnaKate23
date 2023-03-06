@@ -81,16 +81,15 @@ def main():
 
 
     # output all swaps
-    if swaps <= 4*len(data):
-        print(len(swaps))
-        for i, j in swaps:
-            print(i, j)
-    else:
-        print("doesn't satisfy conditions")
-        
+    
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
+    
+        
+    #print(len(swaps))
+    #for i, j in swaps:
+     #   print(i, j)
 
 
 if __name__ == "__main__":
