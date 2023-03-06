@@ -3,6 +3,35 @@
 
 def build_heap(data):
     swaps = []
+    n = len(data)
+    for i in range(n // 2, -1, -1):
+        min = i
+        #set i as min_index
+        left_child = 2*i + 1
+        right_child = 2*i + 2
+
+        if left_child < n and data[left_child] < data[min]:
+            min = left_child
+        if right_child < n and data[right_child] < data[min]:
+            min = right_child
+        if i != min:
+            swaps.append([i, min])
+            data[i], data[min] = data[min], data[i]
+
+            j = min
+            while j <= n//2 - 1:
+                k = 2*j + 1
+                if k+1 < n and data[k+1] < data[k]:
+                    k = k+1
+                if data[j] > data[k]:
+                    swaps.append((j, k))
+                    data[j], data[k] = data[k], data[j]
+                    j=k
+                else:
+                    break
+                
+        
+
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
 
@@ -11,6 +40,25 @@ def build_heap(data):
 
 
 def main():
+
+    print("Input 'I' or 'F': ")
+    text = input()
+    if "I" in text:
+        n = int(input())
+        data = list(map(int, input().split()))
+        assert len(data) == n, "length of data should be the same as n"
+        #skaitlu ievade
+    elif "F" in text:
+        file = input()
+        with open(f"./test/{file}", "r") as filee:
+            n = int(filee.readline())
+            data = list(map(int, file.readline().split()))
+            assert len(data) == n, "length of data should be the same as n"
+            #skaitlu ievade
+    else:
+        print("invalid input")
+        return
+
     
     # TODO : add input and corresponding checks
     # add another input for I or F 
@@ -18,11 +66,11 @@ def main():
 
 
     # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
+    
+    
 
     # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
+    # assert len(data) == n, "length of data should be the same as n"
 
     # calls function to assess the data 
     # and give back all swaps
@@ -33,6 +81,13 @@ def main():
 
 
     # output all swaps
+    if swaps <= 4*len(data):
+        print(len(swaps))
+        for i, j in swaps:
+            print(i, j)
+    else:
+        print("doesn't satisfy conditions")
+        
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
