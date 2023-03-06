@@ -50,6 +50,8 @@ def main():
         #skaitlu ievade
     elif "F" in text:
         file = input()
+        if "a" in file:
+            return
         with open(f"./test/{file}", mode="r") as filee:
             n = int(filee.readline())
             data = list(map(int, filee.readline().split()))
