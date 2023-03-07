@@ -52,7 +52,7 @@ def main():
         file = input()
         if "a" in file:
             return
-        with open(f"./test/{file}", mode="r") as filee:
+        with open("./test/"+file, mode="r") as filee:
             n = int(filee.readline())
             data = list(map(int, filee.readline().split()))
             assert len(data) == n, "length of data should be the same as n"
