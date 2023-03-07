@@ -43,20 +43,20 @@ def main():
 
     print("Input 'I' or 'F': ")
     text = input()
-    if "I" in text:
+    if "F" in text:
+        file = input()
+        if 'a' not in file:
+            with open("./tests/"+file, mode='r') as filee:
+                n = int(filee.readline())
+                data = list(map(int, filee.readline().split()))
+        else:
+            print("error")
+    elif "I" in text:
         n = int(input())
         data = list(map(int, input().split()))
         # assert len(data) == n, "length of data should be the same as n"
         #skaitlu ievade
-    elif "F" in text:
-        file = input()
-        if "a" not in file:
-            with open("./tests/"+file, mode='r') as filee:
-                n = int(filee.readline())
-                data = list(map(int, filee.readline().split()))
         
-        else:
-            print("error")
       
             
             #skaitlu ievade
