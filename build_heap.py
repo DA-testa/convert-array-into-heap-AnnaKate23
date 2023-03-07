@@ -58,6 +58,8 @@ def main():
     else:
         print("invalid input")
         return
+    
+    swaps = build_heap(data)
 
     
     # TODO : add input and corresponding checks
@@ -74,7 +76,7 @@ def main():
 
     # calls function to assess the data 
     # and give back all swaps
-    swaps = build_heap(data)
+    
 
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
