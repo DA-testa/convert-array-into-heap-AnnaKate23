@@ -51,7 +51,7 @@ def main():
     elif "F" in text:
         file = input()
         if "a" not in file:
-            with open("./test/"+file, mode="r") as filee:
+            with open("./tests/"+file, mode='r') as filee:
                 n = int(filee.readline())
                 data = list(map(int, filee.readline().split()))
         
