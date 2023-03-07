@@ -46,18 +46,20 @@ def main():
     if "I" in text:
         n = int(input())
         data = list(map(int, input().split()))
-        assert len(data) == n, "length of data should be the same as n"
+        # assert len(data) == n, "length of data should be the same as n"
         #skaitlu ievade
     elif "F" in text:
         file = input()
         with open("./test/"+file, mode="r") as filee:
             n = int(filee.readline())
             data = list(map(int, filee.readline().split()))
-            assert len(data) == n, "length of data should be the same as n"
+            
             #skaitlu ievade
     else:
         print("invalid input")
         return
+    
+    assert len(data) == n, "length of data should be the same as n"
     
     swaps = build_heap(data)
 
